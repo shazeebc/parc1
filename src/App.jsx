@@ -107,11 +107,18 @@ import "./index.css";
 const App = () => {
    
     let time = new Date().toLocaleTimeString();
+    // const done ="click Me"
+    const [name, setName] = useState("click Me");
+    
 
     const [ctime, setCtime] = useState(time);
     const UpdateTime = ( ) => {
         time = new Date().toLocaleTimeString();
         setCtime(time); 
+      
+    };
+    const click = () => {
+       setName("Current Time")
     };
     setInterval(UpdateTime,1000)
      return(
@@ -119,6 +126,7 @@ const App = () => {
              <div className="back">
                  <h1>Time ⏱️</h1>
                  <h2 className="sha"> {time}</h2>
+                 <div className="click" onClick={click}>{name}</div>
              </div>
         </>
      )
